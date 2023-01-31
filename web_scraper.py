@@ -3,7 +3,9 @@ from bs4 import BeautifulSoup
 from datetime import date
 
 #insert console inputted URL logic here
-URL = 'https://www.linkedin.com/jobs/view/3451031538/?alternateChannel=search&refId=Pn3zSJd09WKgEGmIwhjSrg%3D%3D&trackingId=dadK7Hxc%2FQ65gAzJMnnnyA%3D%3D'
+# URL = 'https://www.linkedin.com/jobs/view/3451031538/?alternateChannel=search&refId=Pn3zSJd09WKgEGmIwhjSrg%3D%3D&trackingId=dadK7Hxc%2FQ65gAzJMnnnyA%3D%3D'
+URL = 'https://www.linkedin.com/jobs/view/3457349697/?alternateChannel=search&refId=Pn3zSJd09WKgEGmIwhjSrg%3D%3D&trackingId=X4avWcEW%2F88OV1XMvw8Xkg%3D%3D&trk=d_flagship3_job_details'
+
 pageinfo = requests.get(URL)
 
 soup = BeautifulSoup(pageinfo.text, 'html.parser')
@@ -17,15 +19,25 @@ docs_info = {
     "result": "Pending",
     "name_of_company": "",
     "position": "",
-    "url": "",
+    "url": URL,
     "location": "",
 }
 
-# def title_info_splitter(title):
-#     edited = title.split('hiring')
-#     edited.split('in')
-#     print(edited)
+def title_info_splitter(title):
+    all_info_split = title.split('hiring')
+    docs_info["name_of_company"] = all_info_split[0]
 
-# title_info_splitter(html_title)
+    role_and_location_info = all_info_split[1].split(' in ')
+    role_info = role_and_location_info[0]
+    docs_info["position"] = role_info
+
+    location_info = role_and_location_info[1].split('|')
+    location_info = location_info[0]
+    docs_info["location"] = location_info
+
+
+title_info_splitter(html_title)
+
+
 
 
