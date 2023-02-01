@@ -35,6 +35,7 @@ def append_values(data):
             body=body
             )
         response = request.execute()
+        print("SUCCESSFULLY INPUTTED DATA: ")
         print(response)
     
     except HttpError as error:
