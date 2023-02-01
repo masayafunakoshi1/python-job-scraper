@@ -15,7 +15,7 @@ docs_info = {
 
 #main function
 def scraping_handler(url):
-    print("GREEN HOUSE LINK")
+    print("GREEN HOUSE URL")
     docs_info["url"] = url
     
     pageinfo = requests.get(url)

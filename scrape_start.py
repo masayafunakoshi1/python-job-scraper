@@ -4,6 +4,7 @@ import re
 sys.path.insert(0, "/mnt/d/coding/programming_projects/Extra-projects/python-job-scraper/scripts")
 import linkedin_web_scraper
 import greenhouse_web_scraper
+import workday_web_scraper
 
 print("Input job URL: ")
 URL = str(input())
@@ -13,3 +14,6 @@ if re.search("linkedin", URL):
     linkedin_web_scraper.scraping_handler(URL)
 elif re.search("greenhouse", URL):
     greenhouse_web_scraper.scraping_handler(URL)
+elif re.search("workday", UTL):
+    workday_web_scraper.scraping_handler(URL)
+

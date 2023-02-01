@@ -17,33 +17,18 @@ docs_info = {
     "location": "",
 }
 
-def title_info_splitter(title, url):
-    print("LINKED IN URL")
-    docs_info["url"] = url
-
-    all_info_split = title.split('hiring')
-    docs_info["company_name"] = all_info_split[0]
-
-    role_and_location_info = all_info_split[1].split(' in ')
-    role_info = role_and_location_info[0]
-    docs_info["position"] = role_info
-
-    location_info = role_and_location_info[1].split('|')
-    location_info = location_info[0]
-    docs_info["location"] = location_info
-    print("Parsed Info: ", docs_info)
-
 #main function
 def scraping_handler(url):
-    pageinfo = requests.get(url)
+    print("WORKDAY URL")
+    # pageinfo = requests.get(url)
 
-    soup = BeautifulSoup(pageinfo.text, 'html.parser')
-    html_title = soup.title.string
+    # soup = BeautifulSoup(pageinfo.text, 'html.parser')
+    # html_title = soup.title.string
 
-    title_info_splitter(html_title, url)
+    # title_info_splitter(html_title, url)
     
-    #append onto google docs spreadsheet
-    append_values(docs_info)
+    # #append onto google docs spreadsheet
+    # append_values(docs_info)
 
 
 
