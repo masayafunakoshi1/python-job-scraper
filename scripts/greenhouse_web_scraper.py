@@ -20,7 +20,7 @@ def scraping_handler(url):
     
     pageinfo = requests.get(url)
 
-    soup = BeautifulSoup(pageinfo.text, 'html.parser')
+    soup = BeautifulSoup(pageinfo.text, "html.parser")
     html_string_position = soup.find(class_="app-title").string.strip()
     html_string_location = soup.find(class_="location").string.strip()
 
