@@ -8,6 +8,12 @@ from googleapiclient.errors import HttpError
 
 load_dotenv()
 
+def type_checker(data):
+    if isinstance(data['location'], str):
+        return data['location']  
+    else:
+        return " ".join(data['location'])
+
 def append_values(data):
     try:
         SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")
@@ -23,7 +29,7 @@ def append_values(data):
         cell_range = 'A1:G1'
         values = [
             [
-                data['date'], data['result'], data['company_name'], data['position'], data['url'], " ".join(data['location'])
+                data['date'], data['result'], data['company_name'], data['position'], data['url'], type_checker(data)
             ]
         ]
 
