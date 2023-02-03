@@ -1,19 +1,23 @@
 #accessgooglesheetsapi@job-applications-script.iam.gserviceaccount.com
+import os
+from dotenv import load_dotenv
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+load_dotenv()
+
 def append_values(data):
     try:
-        SERVICE_ACCOUNT_FILE = 'credentials.json'
+        SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")
         credentials = service_account.Credentials.from_service_account_file(
             filename=SERVICE_ACCOUNT_FILE
         )
 
         service_sheets = build('sheets', 'v4', credentials=credentials)
 
-        GOOGLE_SHEETS_ID = '14QzRhFTzHDxWTgHpXhUL20qWGh8aq4jKewrIASmvxMs'
+        GOOGLE_SHEETS_ID = os.getenv("GOOGLE_SHEETS_ID")
 
         worksheet_name='2nd-run Applications(8-2022)!'
         cell_range = 'A1:G1'
