@@ -14,6 +14,6 @@ if re.search("linkedin", URL):
     linkedin_web_scraper.scraping_handler(URL)
 elif re.search("greenhouse", URL):
     greenhouse_web_scraper.scraping_handler(URL)
-elif re.search("workday", UTL):
+elif re.search("workday", URL):
     workday_web_scraper.scraping_handler(URL)
 
