@@ -23,7 +23,7 @@ def append_values(data):
         cell_range = 'A1:G1'
         values = [
             [
-                data['date'], data['result'], data['company_name'], data['position'], data['url'], data['location']
+                data['date'], data['result'], data['company_name'], data['position'], data['url'], " ".join(data['location'])
             ]
         ]
 
