@@ -45,6 +45,7 @@ def append_values(data):
             body=body
             )
         response = request.execute()
+        print("\n")
         print("SUCCESSFULLY INPUTTED DATA: ")
         print(response)
     

@@ -9,7 +9,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-import selenium.common
 
 from sheets_append_values import append_values
 
@@ -76,38 +75,6 @@ def scraping_handler(url):
     driver.quit()
 
     append_values(docs_info)
-
-    # Get page
-    # browser.get("https://google.com")
-
-
-
-
-    # options = Options()
-    # # options.binary_location = "/mnt/c/'Program Files'/BraveSoftware/Brave-Browser/application/brave"
-    # # options.binary_location = "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
-    # options.binary_location = "/mnt/c/'Program Files'/Google/Chrome/Application/chrome"
-
-    # s = Service("/~/chromedriver")
-
-
-    # driver = webdriver.Chrome(service = s, options = options)
-    # driver.get('https://google.com')
-
-
-    # pageinfo = requests.get(url)
-    # time.sleep(5)
-
-    # soup = BeautifulSoup(pageinfo.text, "html.parser")
-
-    # html_data_info = soup.find(class_="css-7papts")
-    # print(html_data_info)
-
-
-    # title_info_splitter(html_title, url)
-    
-    # #append onto google docs spreadsheet
-    # append_values(docs_info)
 
 
 
